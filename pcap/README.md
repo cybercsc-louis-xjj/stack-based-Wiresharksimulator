@@ -18,7 +18,7 @@
 
 **https->http->https->https:**
 
-<img src="https://github.com/cybercsc-louis-xjj/stack-based-Wiresharksimulator/tree/main/image/phase1.jpg" alt="phase1" style="zoom: 40%;" />
+![](https://github.com/cybercsc-louis-xjj/stack-based-Wiresharksimulator/tree/main/image/phase1.jpg)
 
 <img src="https://github.com/cybercsc-louis-xjj/stack-based-Wiresharksimulator/tree/main/image/phase2.jpg" alt="phase2" style="zoom:40%;" />
 

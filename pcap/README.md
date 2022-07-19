@@ -18,13 +18,13 @@
 
 **https->http->https->https:**
 
-<img src="./image/phase1.jpg" alt="phase1" style="zoom: 40%;" />
+<img src="https://github.com/cybercsc-louis-xjj/stack-based-Wiresharksimulator/tree/main/image/phase1.jpg" alt="phase1" style="zoom: 40%;" />
 
-<img src="./image/phase2.jpg" alt="phase2" style="zoom:40%;" />
+<img src="https://github.com/cybercsc-louis-xjj/stack-based-Wiresharksimulator/tree/main/image/phase2.jpg" alt="phase2" style="zoom:40%;" />
 
-<img src="./image/phase3.jpg" alt="phase3" style="zoom:40%;" />
+<img src="https://github.com/cybercsc-louis-xjj/stack-based-Wiresharksimulator/tree/main/image/phase3.jpg" alt="phase3" style="zoom:40%;" />
 
-<img src="./image/phase4.jpg" alt="phase4" style="zoom:40%;" />
+<img src="https://github.com/cybercsc-louis-xjj/stack-based-Wiresharksimulator/tree/main/image/phase4.jpg" alt="phase4" style="zoom:40%;" />
 
 我们先从加密协议信息入手。对于cilent hello提供的加密套件(cipher suites)，分析的价值不大，因为这个特征主要针对客户端，而在本次抓包实验中客户端只有一个。但是client hello中的SNI(Server Name Indication)包含域名信息，可以分析出一定的行为含义：
 

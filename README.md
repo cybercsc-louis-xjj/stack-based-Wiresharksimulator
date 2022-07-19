@@ -34,7 +34,7 @@ if(tcp_flags==0x18||tcp_flags==0x10)
 
 **(1). client hello,字段为cipher suites&SNI:**
 
-![tls cilent-hello](./image/tls cilent-hello.jpg)
+![tls cilent-hello](./image/tls-cilent-hello.jpg)
 
 **(2). server hello (certificate+server hello done)，字段为证书内容(只展示部分)：**
 
@@ -66,25 +66,25 @@ Certificate:
 
 证书包含在tls握手的第二个阶段，这个阶段服务器会向用户发送多个tls头部，包括Server hello，Certificate，Server Key Exchange和Server Hello Done。当MTU较大时，各个tls可以包含在一个分片中，例如LineTV的流量：
 
-![LineTV large MTU](./image/LineTV large MTU.jpg)
+![LineTV large MTU](./image/LineTV-large MTU.jpg)
 
 而在刺激战场流量中，MTU被限制在1500，所以当第二阶段的数据较大时，会利用同一个ack号分到不同的报文中：
 
-![tls server-hello1](./image/tls server-hello1.jpg)
+![tls server-hello1](./image/tls-server-hello1.jpg)
 
 那么就需要考虑如何定位这些报文。除了Certificate以外，另外三个部分的tls头部由于远小于MTU,内容一般不会被分割，并且分别位于头部和尾部，所以较容易定位，但certificate的tls头部和证书内容处于总体负载的中间位置，因此无法直接定位，于是就无法知道长度，也无法直接知道certificate被分成了几个“TCP Segment of PDU”。
 
 例如刺激战场流量中的另一个例子，第二阶段的报文被分为了4个而不止3个：
 
-![tls server-hello2](./image/tls server-hello2.jpg)
+![tls server-hello2](./image/tls-server-hello2.jpg)
 
 此外，也会有报文之间夹杂其他会话的情况 ( 报文9495属于其他会话 ) ：
 
-![tls server-hello3](./image/tls server-hello3.jpg)
+![tls server-hello3](./image/tls-server-hello3.jpg)
 
 以及分片乱序的情况：
 
-![tls server-hello outoforder](./image/tls server-hello outoforder.jpg)
+![tls server-hello outoforder](./image/tls-server-hello outoforder.jpg)
 
 所以我的处理思路是：
 

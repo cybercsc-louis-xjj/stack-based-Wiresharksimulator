@@ -84,7 +84,7 @@ Certificate:
 
 以及分片乱序的情况：
 
-![tls server-hello outoforder](./image/tls-server-hello outoforder.jpg)
+![tls server-hello outoforder](./image/tls-server-hello-outoforder.jpg)
 
 所以我的处理思路是：
 
